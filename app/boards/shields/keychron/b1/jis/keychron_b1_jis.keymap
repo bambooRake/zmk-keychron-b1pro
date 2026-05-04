@@ -367,27 +367,38 @@
             &trans      &mt_tap PRINTSCREEN ESCAPE  &mt LWIN PERIOD     &tp_msc_up_left                     &tp_mkp_mb4_mb5         &kp TAB             &mt_tap END HOME &kp UP_ARROW   &kp TAB             &kp RWIN    &kp ESCAPE  &trans              &trans
             &trans      &mt LCTRL MINUS         &mt LALT ENTER          &tp_msc_down_right                  &mkp MB1                &mkp MB3            &kp LEFT_ARROW  &kp DOWN        &kp RIGHT           &mt ENTER RIGHT_ALT  &kp RIGHT_CONTROL  &trans  &trans              &trans
             &trans                              &mt LSHIFT INSERT       &kp BACKSPACE                       &kp SPACE               &mkp MB2            &kp DEL         &kp PAGE_UP     &kp PAGE_DOWN       &kp SPACE   &kp BACKSPACE  &kp RSHIFT       &trans              &trans
-            &trans      &trans                  &trans                  &trans                  &trans                                                                  &trans                              &trans      &trans      &trans              &trans              &trans
+            &trans      &trans                  &trans                  &trans                  &trans                                                                  &trans                  &trans              &trans      &trans      &trans              &trans              &trans
             &trans      &trans                  &trans                  &trans                              &trans
             >;
         };
 
         // ============================================================
-        // Layer 3: LalaPadGen2 SYSTEM (BT / media / brightness / sys)
-        //   Access: NOT BOUND. Define an access key or combo as needed
-        //   (e.g. set position 81 on layer 1 to `&mo 3`, or add a combo).
-        //   F-row, number row and thumb row are &trans (fall through).
-        //   zip_dyn_scale (trackpad DPI) keys are &trans -- B1 Pro has
-        //   no trackpad hardware.
+        // Layer 3: LalaPadGen2 SYSTEM port (LEFT HAND ONLY).
+        //   Active bindings: media / brightness / volume / arrows /
+        //   edit (BSPC, PG_UP/DN, DEL) on positions 30-34 (Q-T),
+        //   43-47 (A-G), 57-61 (Z-B).
+        //
+        //   Right hand is &trans -- the original LalaPad SYSTEM right
+        //   side (BT_SEL 0-3 / sys_reset / bootloader / BT_CLR /
+        //   BT_CLR_ALL / mkp MB1) is already covered on B1 Pro by
+        //   layer 1 (Fn+1..4 = bt_pair_*) and existing combos
+        //   (combo_jz=recover, combo_b=OUT_BAT, etc.).
+        //
+        //   F-row / number row / thumb row / switch row are &trans
+        //   (fall through). zip_dyn_scale (trackpad DPI) keys are
+        //   &trans -- B1 Pro has no trackpad hardware.
+        //
+        //   Access: NOT BOUND. Define an access key or combo as
+        //   needed (e.g. position 81 on layer 1 -> &mo 3).
         // ============================================================
         layer_three {
             bindings = <
             &trans      &trans                  &trans                  &trans                              &trans                  &trans              &trans          &trans          &trans              &trans      &trans      &trans              &trans              &trans
             &trans      &trans                  &trans                  &trans                              &trans                  &trans              &trans          &trans          &trans              &trans      &trans      &trans              &trans              &trans              &trans
-            &trans      &kp C_MUTE              &mt_tap C_BRIGHTNESS_DEC C_BRIGHTNESS_INC                   &kp K_CONTEXT_MENU      &kp UP              &mt END HOME    &out OUT_TOG    &bt BT_SEL 0        &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3   &trans              &trans
-            &trans      &mt LCTRL C_VOLUME_UP   &mt LALT ENTER          &kp LEFT                            &kp DOWN                &kp RIGHT           &sys_reset      &mkp MB1        &bt BT_CLR          &bt BT_CLR_ALL  &bootloader  &trans            &trans              &trans
+            &trans      &kp C_MUTE              &mt_tap C_BRIGHTNESS_DEC C_BRIGHTNESS_INC                   &kp K_CONTEXT_MENU      &kp UP              &mt END HOME    &trans          &trans              &trans      &trans      &trans              &trans              &trans
+            &trans      &mt LCTRL C_VOLUME_UP   &mt LALT ENTER          &kp LEFT                            &kp DOWN                &kp RIGHT           &trans          &trans          &trans              &trans      &trans      &trans              &trans              &trans
             &trans                              &mt LSHIFT C_VOLUME_DOWN  &kp BSPC                          &kp PG_UP               &kp PG_DN           &kp DEL         &trans          &trans              &trans      &trans      &trans              &trans              &trans
-            &trans      &trans                  &trans                  &trans                  &trans                                                                  &trans                              &trans      &trans      &trans              &trans              &trans
+            &trans      &trans                  &trans                  &trans                  &trans                                                                  &trans                  &trans              &trans      &trans      &trans              &trans              &trans
             &trans      &trans                  &trans                  &trans                              &trans
             >;
         };
