@@ -167,11 +167,12 @@
         compatible = "zmk,combos";
         // Ported from LalaPadGen2 COMBO_TAB_ALT.
         // Activate layer 2 (Tertiary / nav+mouse) with LEFT_ALT held.
-        // Trigger: FN(mo 1) + T  ->  positions 76 + 34 on B1 Pro JIS.
+        // Trigger: mo 2 (LANG2/無変換) + T  ->  positions 72 + 34 on B1 Pro JIS.
+        // Mirrors LalaPadGen2 semantics (mo 2 button + T).
         combo_tab_alt {
             timeout-ms = <300>;
             layers = <0>;
-            key-positions = <76 34>;
+            key-positions = <72 34>;
             bindings = <&lm 2 LEFT_ALT>;
             slow-release;
         };
@@ -331,7 +332,7 @@
             &kp TAB        &mt_tap ESCAPE Q       &mt LGUI W             &kp E                                  &mt_tap INT4 R        &kp T               &kp Y          &kp U            &kp I               &kp O        &kp P        &kp LBKT             &kp RBKT
             &kp CLCK       &mt LCTRL A            &mt LALT S             &kp D                                  &mt_tap INT5 F        &kp G               &kp H          &kp J            &kp K               &kp L        &kp SEMI     &kp SQT              &kp NUHS            &kp RET
             &kp LSHFT                             &mt LSHIFT Z           &kp X                                  &mt_tap CAPSLOCK C    &kp V               &kp B          &kp N            &kp M               &kp COMMA    &kp DOT      &kp FSLH             &kp INT1            &kp RSHFT
-            &kp LCTRL      &uc LALT               &uc LCMD               &kp LANG2              &kp SPACE                                                 &kp LANG1                       &uc RCMD            &mo 1        &kp LEFT     &kp UP               &kp DOWN            &kp RIGHT
+            &kp LCTRL      &uc LALT               &uc LCMD               &mo 2                  &lt 1 SPACE                                               &kp LANG1                       &uc RCMD            &mo 1        &kp LEFT     &kp UP               &kp DOWN            &kp RIGHT
             &mo 2          &out OUT_BLE           &out OUT_24G           &out OUT_CHG                           &out OUT_CHGD
             >;
         };
@@ -347,7 +348,7 @@
             &trans      &bt_pair_0 0 0          &bt_pair_1 0 0          &bt_pair_2 0 0                      &bt_pair_3 0 0          &trans              &trans          &trans          &trans              &trans      &trans      &trans              &kp C_AC_SEARCH     &trans              &trans
             &trans      &kp SLASH               &mt LWIN BACKSLASH      &kp MINUS                           &kp SINGLE_QUOTE        &kp EQUAL           &kp F1          &kp F2          &kp F3              &kp F4      &kp F5      &trans              &trans
             &trans      &mt LCTRL N1            &mt LALT N2             &mt LBKT N3                         &mt RBKT N4             &mt_tap F5 N5       &kp F6          &kp F7          &kp F8              &kp F9      &kp F10     &trans              &trans              &trans
-            &trans                              &mt LSHIFT N6           &mt_tap COMMA N7                    &mt_tap DOT N8          &mt_tap SEMI N9     &mt_tap BACKSLASH N0  &kp F11   &kp F12             &kp LBKT    &kp RBKT    &kp BACKSLASH       &trans              &trans
+            &trans                              &mt LSHIFT N6           &mt_tap COMMA N7                    &mt_tap DOT N8          &mt_tap SEMI N9     &mt_tap BACKSLASH N0  &kp F11   &kp F12             &kp LBKT    &kp RBKT    &kp BACKSLASH       &trans              &uc LG(DOT)
             &trans      &trans                  &trans                  &trans                  &trans                                                                  &trans                              &kp RCTRL   &trans      &kp HOME            &kp PG_UP           &kp PG_DN           &kp END
             &none       &none                   &none                   &none                               &none
             >;
