@@ -232,6 +232,13 @@ void via_keycode_to_binding(uint8_t keycode,struct zmk_behavior_binding * bindin
 }
 
 void set_zmk_keymap(uint8_t layer,uint8_t row ,uint8_t column ,uint16_t keycode) {
+    /* Patched for the LalaPadGen2 port: keep the static DT keymap
+       authoritative. The launcher's EEPROM-backed dynamic keymap only
+       handles plain &kp bindings -- letting it overwrite zmk_keymap[]
+       at boot would destroy our HRMs / hold-tap / mod-morph / lt /
+       mt_tap bindings. Bail out early so the launcher's HID / macro
+       / 24G transport still works, but the static keymap survives. */
+    return;
 
     int32_t position = zmk_matrix_transform_row_column_to_position(row, column);
     if(position<0) return;

@@ -595,6 +595,14 @@ __attribute__((weak)) void via_init_kb(void) {
     }
     generate_via_keymaps();
     via_ee_read_magic();
+
+    /* LalaPadGen2 port: forcibly invalidate the EEPROM magic on every
+     * boot so any stale Launcher-customized keymap cannot influence
+     * runtime. via_init() will then re-run eeconfig_init_via() and
+     * call set_zmk_keymap() (which we patched to be a no-op) so the
+     * static DT keymap stays authoritative. */
+    via_eeprom_set_valid(false);
+    settings_delete("fn_exchange");
 }
 
 // Called by QMK core to initialize dynamic keymaps etc.
