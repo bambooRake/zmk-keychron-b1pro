@@ -179,8 +179,7 @@
         //   - CONBO_ESC (Q+W = ESC): B1 Pro has a dedicated ESC key.
         //   - COMBO_TAB (A+S = TAB): B1 Pro has a dedicated TAB key.
 
-        // Existing B1 Pro combos. layer 3 has been removed (OS switch dropped),
-        // so layers <1 3> -> <1>.
+        // Existing B1 Pro combos. OS switch removed, so layer 1 (Fn) only.
         combo_jz {
             timeout-ms = <1000>;
             layers = <1>;
@@ -367,6 +366,26 @@
             &trans      &mt_tap PRINTSCREEN ESCAPE  &mt LWIN PERIOD     &tp_msc_up_left                     &tp_mkp_mb4_mb5         &kp TAB             &mt_tap END HOME &kp UP_ARROW   &kp TAB             &kp RWIN    &kp ESCAPE  &trans              &trans
             &trans      &mt LCTRL MINUS         &mt LALT ENTER          &tp_msc_down_right                  &mkp MB1                &mkp MB3            &kp LEFT_ARROW  &kp DOWN        &kp RIGHT           &mt ENTER RIGHT_ALT  &kp RIGHT_CONTROL  &trans  &trans              &trans
             &trans                              &mt LSHIFT INSERT       &kp BACKSPACE                       &kp SPACE               &mkp MB2            &kp DEL         &kp PAGE_UP     &kp PAGE_DOWN       &kp SPACE   &kp BACKSPACE  &kp RSHIFT       &trans              &trans
+            &trans      &trans                  &trans                  &trans                  &trans                                                                  &trans                              &trans      &trans      &trans              &trans              &trans
+            &trans      &trans                  &trans                  &trans                              &trans
+            >;
+        };
+
+        // ============================================================
+        // Layer 3: LalaPadGen2 SYSTEM (BT / media / brightness / sys)
+        //   Access: NOT BOUND. Define an access key or combo as needed
+        //   (e.g. set position 81 on layer 1 to `&mo 3`, or add a combo).
+        //   F-row, number row and thumb row are &trans (fall through).
+        //   zip_dyn_scale (trackpad DPI) keys are &trans -- B1 Pro has
+        //   no trackpad hardware.
+        // ============================================================
+        layer_three {
+            bindings = <
+            &trans      &trans                  &trans                  &trans                              &trans                  &trans              &trans          &trans          &trans              &trans      &trans      &trans              &trans              &trans
+            &trans      &trans                  &trans                  &trans                              &trans                  &trans              &trans          &trans          &trans              &trans      &trans      &trans              &trans              &trans              &trans
+            &trans      &kp C_MUTE              &mt_tap C_BRIGHTNESS_DEC C_BRIGHTNESS_INC                   &kp K_CONTEXT_MENU      &kp UP              &mt END HOME    &out OUT_TOG    &bt BT_SEL 0        &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3   &trans              &trans
+            &trans      &mt LCTRL C_VOLUME_UP   &mt LALT ENTER          &kp LEFT                            &kp DOWN                &kp RIGHT           &sys_reset      &mkp MB1        &bt BT_CLR          &bt BT_CLR_ALL  &bootloader  &trans            &trans              &trans
+            &trans                              &mt LSHIFT C_VOLUME_DOWN  &kp BSPC                          &kp PG_UP               &kp PG_DN           &kp DEL         &trans          &trans              &trans      &trans      &trans              &trans              &trans
             &trans      &trans                  &trans                  &trans                  &trans                                                                  &trans                              &trans      &trans      &trans              &trans              &trans
             &trans      &trans                  &trans                  &trans                              &trans
             >;
